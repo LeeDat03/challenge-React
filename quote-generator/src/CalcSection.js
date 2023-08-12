@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Heading } from "./App";
 //////////////////////////////////////////////////////////////////////////
 // CALCULATOR
@@ -13,15 +13,15 @@ export default function CalcSection() {
 
 function Computer() {
   const [input, setInput] = useState("");
-  const [num1, setNum1] = useState(0);
   const [operator, setOperator] = useState("");
-  const [text, setText] = useState("");
+  const [num1, setNum1] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
+
+  const [text, setText] = useState("");
 
   function handleNumPress(e) {
     if (isCompleted) {
       setInput((cur) => e.target.innerHTML);
-      setText("");
       setIsCompleted(false);
     } else setInput((cur) => Number(cur + e.target.innerHTML));
   }
@@ -34,7 +34,6 @@ function Computer() {
     setInput("");
     setOperator("");
     setNum1(0);
-    setText("");
     setIsCompleted(false);
   }
 
@@ -47,23 +46,24 @@ function Computer() {
   }
 
   function handleCalc(e) {
+    if (!input && !num1) return;
+
+    setOperator(e.target.innerHTML);
     if (input) {
       setIsCompleted(false);
       setNum1(input);
-      setOperator(e.target.innerHTML);
-      setText(`${input} ${e.target.innerHTML}`);
       setInput("");
     }
   }
 
   function handleEqual() {
-    setText((cur) => `${cur} ${input}`);
+    if (!input) return;
+
     setIsCompleted(true);
 
     if (operator === "+") {
       setInput((cur) => num1 + cur);
     }
-
     if (operator === "-") {
       setInput((cur) => num1 - cur);
     }
@@ -76,7 +76,17 @@ function Computer() {
     if (operator === "%") {
       setInput((cur) => num1 % cur);
     }
+
+    setOperator("");
   }
+
+  useEffect(
+    function () {
+      if (!isCompleted)
+        setText(`${num1 || ""} ${operator || ""} ${input || ""}`);
+    },
+    [input, operator, num1, isCompleted]
+  );
 
   return (
     <>

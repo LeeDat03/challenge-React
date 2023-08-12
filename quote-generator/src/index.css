@@ -44,8 +44,8 @@ body {
   left: -50%;
   background-repeat: no-repeat;
   background-size: 40% 40%;
-  background-image: conic-gradient(#fa5252, #fa5252);
-  animation: rotate 5s linear infinite;
+  background-image: conic-gradient(#dbe1fb, #b8c5f8);
+  animation: rotate 10s linear infinite;
 }
 
 .app::after {
