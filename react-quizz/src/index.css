@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
+@import url("https://css.gg/css?=|debug");
+
+:root {
+  --color-darkest: #343a40;
+  --color-dark: #495057;
+  --color-medium: #ced4da;
+  --color-light: #f1f3f5;
+
+  --color-theme: #1098ad;
+  --color-accent: #ffa94d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-darkest);
+  color: var(--color-light);
+}
+
+.option:not([disabled]):hover {
+  background-color: transparent;
+  transform: translateX(2rem);
+}
+
+.btn:not([disabled]):hover {
+  background-color: transparent;
+}
+
+.option[disabled]:hover {
+  cursor: not-allowed;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  min-width: 66rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4rem 0;
+  margin-top: 2rem;
+}
+
+.header img {
+  width: 14rem;
+}
+
+.header h1 {
+  font-size: 5.6rem;
+  font-family: "CodyStar";
+  letter-spacing: 0.5px;
+}
+
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.start h2 {
+  font-size: 3.6rem;
+}
+
+.start h3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: var(--color-dark);
+  padding: 1.2rem 2.4rem;
+  border-radius: 10rem;
+  font-size: 2rem;
+  border: 2px solid var(--color-dark);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.main {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1.5rem;
+}
+
+::-webkit-progress-bar {
+  background-color: var(--color-medium);
+  border-radius: 100px;
+}
+::-webkit-progress-value {
+  background-color: var(--color-theme);
+  border-radius: 100px;
+}
+
+.progress__infor {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.progress__infor {
+  font-weight: 700;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+}
+
+h4 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.options {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.option {
+  padding: 1.2rem 2.4rem;
+  text-align: left;
+  font-size: 2rem;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.option--active {
+  transform: translateX(2rem);
+}
+
+.option--wrong {
+  background-color: #ffa94d;
+  border: none;
+}
+
+.option--true {
+  background-color: #1098ad;
+  border: none;
+}
+
+.btn--next {
+  align-self: flex-end;
+}
+
+.loading__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  width: 8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 5px solid;
+  border-color: var(--color-light) var(--color-darkest);
+  animation: s1 1s infinite;
+}
+@keyframes s1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+
+.error__container {
+  padding: 1.2rem 2.4rem;
+  background-color: #fa5252;
+  border-radius: 1rem;
+  max-width: 50rem;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  gap: 2rem;
+}
+
+.finish {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.finish p {
+  font-size: 1.8rem;
+}
+
+.finish p > span {
+  font-weight: 700;
+}
+
+.finish__head {
+  background-color: #1098ad;
+  border-radius: 100rem;
+  max-width: 50rem;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 2.4rem;
+}
+
+.btn-restart {
+  align-self: flex-end;
+  margin-top: 5rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer {
+  font-size: 2rem;
+  padding: 1.2rem 2.4rem;
+  background-color: transparent;
+  border-radius: 100rem;
+  border: 1px solid var(--color-dark);
+}
